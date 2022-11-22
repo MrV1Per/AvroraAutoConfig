@@ -1,0 +1,55 @@
+﻿<Window x:Class="AvroraSet.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AvroraSet"
+        mc:Ignorable="d"
+        Title="Price auto config" Height="373" Width="470.667" FontFamily="Arial Black" FontWeight="Bold" FontSize="16" ResizeMode="NoResize" AutomationProperties.AccessKey="space" WindowStartupLocation="CenterScreen" Visibility="Visible" Cursor="Arrow" WindowStyle="None" Background="#FF2F3034">
+    <Grid x:Name="MainRoot">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="232*"/>
+            <ColumnDefinition Width="239*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="110"/>
+            <RowDefinition Height="165"/>
+        </Grid.RowDefinitions>
+        <Grid Name="Top" Background="Transparent" Grid.Row="0" Cursor="Arrow" MouseDown="Top_MouseDown" Grid.ColumnSpan="2">
+            <Label Content="Avrora auto config v0.2" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="12" Width="187" Foreground="#FF878787" Cursor="Arrow"/>
+            <Button Content="✖" HorizontalAlignment="Left" Margin="447,3,0,0" VerticalAlignment="Top" Width="20" Height="20" FontSize="9" Background="#FF383B40" Foreground="#FF878787" BorderBrush="#FF383B40" Click="Button_Click_1" Cursor="Arrow"/>
+            <Button x:Name="LogBTN" Content="✎" HorizontalAlignment="Left" Margin="422,3,0,0" VerticalAlignment="Top" Width="20" Height="20" FontSize="9" Background="#FF383B40" Foreground="#FF878787" BorderBrush="#FF383B40" Click="Button_Log" Cursor="Arrow"/>
+
+
+        </Grid>
+        <Grid Name="DNS" Grid.Row="1" Cursor="Arrow" Grid.ColumnSpan="2">
+            <TextBox x:Name="fieldDns" Height="48" Margin="10,52,0,0" TextWrapping="Wrap" Text="a0" VerticalAlignment="Top" FontSize="36" Background="#FF383B40" BorderBrush="#FF383B40" SelectionBrush="#FF383B40" Foreground="#FF878787" Cursor="Arrow" HorizontalAlignment="Center" Width="215"/>
+            <Label Content="DNS*" HorizontalAlignment="Center" Margin="133,6,245,0" VerticalAlignment="Top" Height="41" Width="93" FontSize="24" Foreground="#FF878787" Cursor="Arrow"/>
+            <Label Content="(aXXXX-pXX)" HorizontalAlignment="Center" Margin="231,14,122,0" VerticalAlignment="Top" Height="33" Width="118" FontSize="15" Foreground="#FF878787" Cursor="Arrow"/>
+        </Grid>
+        <Grid x:Name="IP" Margin="0,0,0,55" Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="18*"/>
+                <RowDefinition Height="29*"/>
+            </Grid.RowDefinitions>
+            <TextBox x:Name="fieldIP" Height="38" Margin="10,41,0,0" TextWrapping="Wrap" Text="10." VerticalAlignment="Top" FontSize="32" Background="#FF383B40" BorderBrush="#FF383B40" SelectionBrush="#FF383B40" Foreground="#FF878787" Cursor="Arrow" Grid.RowSpan="2" HorizontalAlignment="Left" Width="215"/>
+            <Label Content="IP (If manual ip)" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Height="41" Width="225" FontSize="24" Foreground="#FF878787" Cursor="Arrow"/>
+        </Grid>
+        <Grid Name="NumberPrice" Grid.Row="2" Margin="0,81,0,-70" Cursor="Arrow">
+            <TextBox x:Name="fieldNum" Height="41" Margin="10,47,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="36" Background="#FF383B40" BorderBrush="#FF383B40" SelectionBrush="#FF383B40" Foreground="#FF878787" Cursor="Arrow" HorizontalAlignment="Left" Width="215"/>
+            <Label Content="Серийник*" HorizontalAlignment="Left" Margin="10,3,0,0" VerticalAlignment="Top" Height="37" Width="170" FontSize="24" Foreground="#FF878787" Cursor="Arrow"/>
+            <Button Content="☑" HorizontalAlignment="Left" Margin="175,95,0,10" Width="50" FontSize="20" Background="#FF383B40" Foreground="#FF878787" BorderBrush="#FF383B40" Click="Button_Click" Cursor="Arrow" Height="50"/>
+            <CheckBox x:Name="ipCB" Content="AutoIP" HorizontalAlignment="Left" Margin="10,129,0,0" VerticalAlignment="Top" Background="#FF383B40" Foreground="#FF878787" BorderBrush="#FF383B40" Height="16" Width="80" IsChecked="True" FontSize="16"/>
+            <CheckBox x:Name="SecondVariantCB" Content="Try V2 (P &lt; 50)" HorizontalAlignment="Left" Margin="10,100,0,0" VerticalAlignment="Top" Background="#FF383B40" Foreground="#FF878787" BorderBrush="#FF383B40" Height="18" Width="160" IsChecked="False" FontSize="16"/>
+        </Grid>
+        <TextBox x:Name="fieldLocalIP" Height="37" Margin="10,41,0,0" TextWrapping="Wrap" IsReadOnly="False" Text="" VerticalAlignment="Top" FontSize="27" Background="#FF383B40" BorderBrush="#FF383B40" SelectionBrush="#FF383B40" Foreground="#FF878787" Cursor="Arrow" HorizontalAlignment="Left" Width="219" Grid.Row="2" Grid.Column="1"/>
+        <Label Content="Device local IP" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Height="41" Width="225" FontSize="24" Foreground="#FF878787" Cursor="Arrow" Grid.Row="2" Grid.Column="1"/>
+        <Button Content="Orange" HorizontalAlignment="Left" Margin="10,176,0,-60" Width="105" FontSize="20" Background="#FF383B40" Foreground="#FF878787" BorderBrush="#FF383B40" Click="Orange_Click" Cursor="Arrow" Grid.Row="2" Grid.Column="1"/>
+        <Button Content="Door" HorizontalAlignment="Right" Margin="0,176,10,-60" Width="105" FontSize="20" Background="#FF383B40" Foreground="#FF878787" BorderBrush="#FF383B40" Click="DD_Click" Cursor="Arrow" Grid.Row="2" Grid.Column="1"/>
+        <TextBox x:Name="SerialNum" Height="37" IsReadOnly="False" Margin="10,129,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="30" Background="#FF383B40" BorderBrush="#FF383B40" SelectionBrush="#FF383B40" Foreground="#FF878787" Cursor="Arrow" HorizontalAlignment="Left" Width="218" Grid.Row="2" Grid.Column="1"/>
+        <Label Content="DD Serial Num" HorizontalAlignment="Left" Margin="10,83,0,0" VerticalAlignment="Top" Height="41" Width="225" FontSize="24" Foreground="#FF878787" Cursor="Arrow" Grid.Row="2" Grid.Column="1"/>
+
+    </Grid>
+</Window>
